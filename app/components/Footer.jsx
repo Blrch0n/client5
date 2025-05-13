@@ -18,6 +18,7 @@ const Footer = () => {
             alt="logo"
             width={220}
             height={60}
+            className="cursor-pointer"
           />
           <h1 className="text-[20px] font-bold text-white">Хаяг:</h1>
           <p>

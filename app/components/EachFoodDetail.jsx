@@ -11,7 +11,7 @@ const EachFoodDetail = ({ foodData }) => {
         height={120}
         src={foodData.image}
         alt={foodData.title}
-        className="w-[120px] h-[120px] rounded-full absolute right-1/2 transform -translate-y-[100%] translate-x-1/2"
+        className="w-[120px] h-[120px] cursor-pointer rounded-full absolute right-1/2 transform -translate-y-[100%] translate-x-1/2"
       />
       <span className="w-full h-[120px]"></span>
       <h2 className="text-[17px] text-black font-semibold">{foodData.title}</h2>

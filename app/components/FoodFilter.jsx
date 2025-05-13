@@ -5,7 +5,7 @@ const FoodFilter = ({ foodTypes, selectedFoodType, setSelectedFoodType }) => {
         return (
           <span
             key={index}
-            className="rounded-full flex px-4 py-2 border"
+            className="rounded-full cursor-pointer flex px-4 py-2 border"
             onClick={() => setSelectedFoodType(foodType)}
             style={{
               border:

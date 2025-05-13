@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import CartPanel from "./Cart/CartPanel";
 import { useCart } from "./Cart/CartContext";
+import Link from "next/link";
 
 const Header = () => {
   const { totalCount } = useCart();
@@ -19,13 +20,15 @@ const Header = () => {
           }}
         ></span>
         <div className="flex items-center z-10 pt-2 pb-4 relative w-full justify-between">
-          <Image
-            src="https://restics.temptics.com/assets/img/logo-dark.svg"
-            alt="logo"
-            width={130}
-            height={35}
-            onClick={() => window.location.reload()}
-          />
+          <Link href={"/"}>
+            <Image
+              src="https://restics.temptics.com/assets/img/logo-dark.svg"
+              alt="logo"
+              width={130}
+              height={35}
+              className="cursor-pointer"
+            />
+          </Link>
 
           <div className="relative">
             <button onClick={() => setOpen((o) => !o)} className="relative">
