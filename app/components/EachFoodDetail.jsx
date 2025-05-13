@@ -30,7 +30,7 @@ const EachFoodDetail = ({ foodData }) => {
             toast.success(`${foodData.title} нэмэгдлээ.`);
           }}
         >
-          Add to Cart
+          Сагсанд нэмэх
         </button>
       </div>
     </div>
