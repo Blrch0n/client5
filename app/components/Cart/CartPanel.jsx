@@ -5,8 +5,9 @@ import { useCart } from "../Cart/CartContext";
 import { FaTimes } from "react-icons/fa";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import axios from "axios";
 
-export default function CartPanel({ open, onClose }) {
+export default function CartPanel({ open, onClose, merchantid, tableid }) {
   const {
     items,
     totalPrice,
@@ -15,6 +16,21 @@ export default function CartPanel({ open, onClose }) {
     decreaseQuantity,
     removeAllFromCart,
   } = useCart();
+
+  const handleClick = () => {
+    axios.post(`http://localhost:8000/api/v1/order`, {
+      items: items,
+      totalPrice: totalPrice,
+      merchantId: merchantid,
+      tableId: tableid,
+      products: items.map((item) => ({
+        product: tableid,
+        price: item.price,
+        total: item.quantity,
+        _id: item._id,
+      })),
+    });
+  };
 
   return (
     <div
@@ -47,8 +63,8 @@ export default function CartPanel({ open, onClose }) {
           {items.length === 0 ? (
             <p className="text-[#888]">Таны сагс хоосон байна.</p>
           ) : (
-            items.map((i) => (
-              <div key={i.id} className="flex flex-col gap-5 items-start mb-3">
+            items.map((i, index) => (
+              <div key={index} className="flex flex-col gap-5 items-start mb-3">
                 <div className="w-full flex gap-4 items-start justify-between">
                   <Image
                     width={80}
@@ -115,9 +131,9 @@ export default function CartPanel({ open, onClose }) {
         <div className="flex w-full h-fit flex-col gap-4 mt-2.5 px-[15px] border border-[#888] rounded-[5px] py-2.5">
           {items.length > 0 && (
             <div className="flex w-full flex-col items-start gap-2.5 pt-2">
-              {items.map((i) => (
+              {items.map((i, index) => (
                 <div
-                  key={i.id}
+                  key={index}
                   className="flex text-[#888] text-[13px] font-medium w-full justify-between mb-2"
                 >
                   <span>{i.title}</span>
@@ -134,6 +150,7 @@ export default function CartPanel({ open, onClose }) {
               <button
                 className="bg-[#FC791A] text-white py-[7px] text-[12px] px-[15px] rounded-full"
                 onClick={() => {
+                  handleClick();
                   onClose();
                   toast.success("Амжилттай захиалсан.");
                   removeAllFromCart();

@@ -35,7 +35,7 @@ const EachFoodDetail = ({ foodData }) => {
           className="bg-[#FAA019] hover:bg-[#fff] hover:text-[#FAA019] border hover:border-[#FAA019] border-[#fff] duration-200 cursor-pointer ease-in text-white text-[13px] font-semibold rounded-full px-4 py-2 mt-2"
           onClick={() => {
             addToCart({
-              id: foodData.id,
+              id: foodData._id,
               image: foodData.image ? foodData.image : "/food-sample.jpg",
               title: foodData.title
                 ? foodData.title

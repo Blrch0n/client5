@@ -6,7 +6,7 @@ import CartPanel from "./Cart/CartPanel";
 import { useCart } from "./Cart/CartContext";
 import Link from "next/link";
 
-const Header = () => {
+const Header = ({ merchantid, tableid }) => {
   const { totalCount } = useCart();
   const [open, setOpen] = useState(false);
   return (
@@ -50,7 +50,12 @@ const Header = () => {
             </button>
 
             {/* pass open to panel */}
-            <CartPanel open={open} onClose={() => setOpen(false)} />
+            <CartPanel
+              open={open}
+              onClose={() => setOpen(false)}
+              merchantid={merchantid}
+              tableid={tableid}
+            />
           </div>
         </div>
         <span

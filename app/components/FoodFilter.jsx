@@ -6,16 +6,16 @@ const FoodFilter = ({ foodTypes, selectedFoodType, setSelectedFoodType }) => {
           <span
             key={index}
             className="rounded-full cursor-pointer flex px-4 py-2 duration-300 border"
-            onClick={() => setSelectedFoodType(foodType)}
+            onClick={() => setSelectedFoodType(foodType._id)}
             style={{
               border:
-                selectedFoodType === foodType
+                selectedFoodType === foodType._id
                   ? "1px solid #FAA019"
                   : "1px solid #000",
-              color: selectedFoodType === foodType ? "#FAA019" : "#000",
+              color: selectedFoodType === foodType._id ? "#FAA019" : "#000",
             }}
           >
-            {foodType}
+            {foodType.title}
           </span>
         );
       })}
