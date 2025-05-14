@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import MainSection from "@/app/components/MainSection";
 import { useParams } from "next/navigation";
@@ -11,6 +12,7 @@ const page = () => {
     <>
       <Header merchantid={merchantid} tableid={tableid} />
       <MainSection tableid={tableid} merchantid={merchantid} />
+      <Footer />
     </>
   );
 };

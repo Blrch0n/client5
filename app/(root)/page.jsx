@@ -1,11 +1,7 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import MainSection from "../components/MainSection";
-
 export default function Home() {
   return (
-    <>
-      <MainSection />
-    </>
+    <section className="w-full h-screen flex flex-col items-center justify-center">
+      <h1 className="font-bold text-[40px]">Have a Great day!U MotherF!cker</h1>
+    </section>
   );
 }

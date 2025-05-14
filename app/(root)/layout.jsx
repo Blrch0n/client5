@@ -2,8 +2,6 @@ import { Toaster } from "react-hot-toast";
 import { CartProvider } from "../components/Cart/CartContext";
 import "../globals.css";
 import { Roboto } from "next/font/google";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -32,9 +30,7 @@ export default function RootLayout({ children }) {
               },
             }}
           />
-          {/* <Header /> */}
           {children}
-          <Footer />
         </CartProvider>
       </body>
     </html>
