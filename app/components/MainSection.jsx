@@ -132,7 +132,6 @@ const foodDatas = [
   },
   {
     id: 15,
-    title: "Dinner Foods",
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
@@ -143,16 +142,14 @@ const foodDatas = [
     id: 16,
     title: "Dessert Foods",
     price: 4500,
-    description:
-      "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
+
     type: "Уураг",
-    image: "https://restics.temptics.com/assets/img/shop-details.png",
   },
 ];
 const foodTypes = ["Бүх", "Хүнс", "Цагаан хоол", "Тариа", "Уураг"];
 
 const MainSection = () => {
-  const [selectedFoodType, setSelectedFoodType] = useState("Хүнс");
+  const [selectedFoodType, setSelectedFoodType] = useState("Бүх");
   return (
     <main className="w-full h-fit flex flex-col pt-[120px] items-center justify-center p-4">
       <FoodFilter

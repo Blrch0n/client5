@@ -33,7 +33,7 @@ export default function CartPanel({ open, onClose }) {
                     ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
-          className="absolute top-4 right-4 text-gray-600"
+          className="absolute top-4 right-4 hover:cursor-pointer text-gray-600"
           onClick={onClose}
         >
           <FiX size={24} />
@@ -61,7 +61,7 @@ export default function CartPanel({ open, onClose }) {
                     <p className="font-medium text-[13px]">{i.title}</p>
                   </div>
                   <button
-                    className="text-[#FC791A]"
+                    className="text-[#FC791A] cursor-pointer"
                     onClick={() => {
                       removeFromCart(i.id);
                       toast.success(`${i.title} сагснаас хаслаа.`);
