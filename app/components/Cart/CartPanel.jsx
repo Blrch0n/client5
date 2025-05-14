@@ -39,7 +39,7 @@ export default function CartPanel({ open, onClose }) {
           <FiX size={24} />
         </button>
 
-        <h2 className=" font-semibold font-roboto text-[#ff4301] text-2xl mb-4">
+        <h2 className=" font-semibold font-roboto text-[#FC791A]  text-2xl mb-4">
           Таны сагс
         </h2>
 
@@ -61,7 +61,7 @@ export default function CartPanel({ open, onClose }) {
                     <p className="font-medium text-[13px]">{i.title}</p>
                   </div>
                   <button
-                    className="text-red-500"
+                    className="text-[#FC791A]"
                     onClick={() => {
                       removeFromCart(i.id);
                       toast.success(`${i.title} сагснаас хаслаа.`);
@@ -70,7 +70,7 @@ export default function CartPanel({ open, onClose }) {
                     <FaTimes />
                   </button>
                 </div>
-                <div className="w-fit flex text-[14px] text-[#ff4301] font-semibold items-center gap-4 justify-between">
+                <div className="w-fit flex text-[14px] text-[#FC791A] font-semibold items-center gap-4 justify-between">
                   <span className="w-20 font-normal text-[#888] mr-2">
                     Үнийн дүн
                   </span>{" "}
@@ -91,7 +91,7 @@ export default function CartPanel({ open, onClose }) {
                           toast.success(`${i.title} нэг ширхэг хасагдлаа.`);
                         }
                       }}
-                      className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ff4301] text-white"
+                      className="w-6 h-6 flex items-center justify-center rounded-full bg-[#FC791A] text-white"
                     >
                       -
                     </button>
@@ -101,7 +101,7 @@ export default function CartPanel({ open, onClose }) {
                         increaseQuantity(i.id);
                         toast.success(`${i.title} нэг ширхэг нэмэгдлээ.`);
                       }}
-                      className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ff4301] text-white"
+                      className="w-6 h-6 flex items-center justify-center rounded-full bg-[#FC791A] text-white"
                     >
                       +
                     </button>
@@ -132,7 +132,7 @@ export default function CartPanel({ open, onClose }) {
                 </p>
               </div>
               <button
-                className="bg-[#ff4301] text-white py-[7px] text-[12px] px-[15px] rounded-full"
+                className="bg-[#FC791A] text-white py-[7px] text-[12px] px-[15px] rounded-full"
                 onClick={() => {
                   onClose();
                   toast.success("Амжилттай захиалсан.");

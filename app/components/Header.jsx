@@ -31,11 +31,17 @@ const Header = () => {
           </Link>
 
           <div className="relative">
-            <button onClick={() => setOpen((o) => !o)} className="relative">
-              <FaCartShopping color="black" size={24} />
+            <button
+              onClick={() => setOpen((o) => !o)}
+              className="relative group"
+            >
+              <FaCartShopping
+                className="group-hover:text-[#EB0029] text-black cursor-pointer duration-100 ease-in"
+                size={24}
+              />
               {totalCount > 0 && (
                 <span
-                  className="absolute -top-1 font-roboto font-bold -right-1 bg-white text-red-600 
+                  className="absolute -top-1 font-roboto font-bold -right-1 bg-white text-[#EB0029] duration-150 ease-in group-hover:bg-[#EB0029] group-hover:text-[#fff]
                              rounded-full text-xs w-4 h-4 flex items-center justify-center"
                 >
                   {totalCount}

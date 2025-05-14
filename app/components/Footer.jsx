@@ -26,34 +26,40 @@ const Footer = () => {
             улс Ай Си Тауэр - 1001 тоот
           </p>
           <ul className="w-full h-fit flex gap-4 items-center justify-start">
-            <li className="w-fit h-fit p-2 border border-[#ffffff33] rounded-[5px]">
+            <li className="w-fit h-fit p-2 border hover:bg-[#EB0029] duration-150 ease-in cursor-pointer border-[#ffffff33] rounded-[5px]">
               <FaFacebookF />
             </li>
-            <li className="w-fit h-fit p-2 border border-[#ffffff33] rounded-[5px]">
+            <li className="w-fit h-fit p-2 border hover:bg-[#EB0029] duration-150 ease-in cursor-pointer border-[#ffffff33] rounded-[5px]">
               <BsTwitterX />
             </li>
-            <li className="w-fit h-fit p-2 border border-[#ffffff33] rounded-[5px]">
+            <li className="w-fit h-fit p-2 border hover:bg-[#EB0029] duration-150 ease-in cursor-pointer border-[#ffffff33] rounded-[5px]">
               <FaLinkedinIn />
             </li>
-            <li className="w-fit h-fit p-2 border border-[#ffffff33] rounded-[5px]">
+            <li className="w-fit h-fit p-2 border hover:bg-[#EB0029] duration-150 ease-in cursor-pointer border-[#ffffff33] rounded-[5px]">
               <FaYoutube />
             </li>
           </ul>
         </div>
-        <div className="w-full h-fit">
+        <div className="w-full h-fit flex flex-col gap-4">
           <h1 className="text-[20px] font-bold text-white">Цагийн хуваарь:</h1>
           <ul className="w-full h-fit flex-col flex gap-4 items-start justify-start">
             <li>
-              <p className="flex gap-2 items-center">
+              <a
+                href="/"
+                className="flex gap-2 duration-150 ease-in-out hover:text-[#EB0029] items-center"
+              >
                 <MdKeyboardDoubleArrowRight />
                 11:00 - 18:00 (ажлын өдөр)
-              </p>
+              </a>
             </li>
             <li>
-              <p className="flex gap-2 items-center">
+              <a
+                href="/"
+                className="flex gap-2 duration-150 ease-in-out hover:text-[#EB0029] items-center"
+              >
                 <MdKeyboardDoubleArrowRight />
                 11:00 - 17:00 (амралтын өдөр)
-              </p>
+              </a>
             </li>
             <li className="w-full h-fit flex flex-row  rounded-[5px] gap-2 items-center justify-start bg-white p-[2px]">
               <form className="w-full flex flex-row rounded-[5px] gap-2 items-center justify-between">
@@ -64,7 +70,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="w-fit h-fit border border-[#ffffff33] rounded-[5px] p-3 bg-[#FC791A] text-white"
+                  className="w-fit h-fit border border-[#ffffff33] rounded-[5px] p-3 bg-[#FC791A] cursor-pointer duration-200 ease-in hover:bg-[#EB0029] text-white"
                 >
                   <FaArrowRight />
                 </button>
@@ -74,7 +80,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-[#EB0029] px-8 py-2 text-center">
-        <p>© 2025 Restics. All rights reserved</p>
+        <p>© Ogtorgui Ai Tech.</p>
       </div>
     </footer>
   );

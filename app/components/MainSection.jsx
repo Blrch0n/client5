@@ -10,7 +10,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "fruit",
+    type: "Хүнс",
     image: "https://restics.temptics.com/assets/img/food-1.png",
   },
   {
@@ -19,7 +19,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/food-2.png",
   },
   {
@@ -28,7 +28,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/food-3.png",
   },
   {
@@ -37,7 +37,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/shop-details.png",
   },
   {
@@ -46,7 +46,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "fruit",
+    type: "Хүнс",
     image: "https://restics.temptics.com/assets/img/food-1.png",
   },
   {
@@ -55,7 +55,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/food-2.png",
   },
   {
@@ -64,7 +64,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/food-3.png",
   },
   {
@@ -73,7 +73,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/shop-details.png",
   },
   {
@@ -82,7 +82,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "grain",
+    type: "Тариа",
     image: "https://restics.temptics.com/assets/img/food-1.png",
   },
   {
@@ -91,7 +91,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/food-2.png",
   },
   {
@@ -100,7 +100,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "grain",
+    type: "Тариа",
     image: "https://restics.temptics.com/assets/img/food-3.png",
   },
   {
@@ -109,7 +109,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "grain",
+    type: "Тариа",
     image: "https://restics.temptics.com/assets/img/shop-details.png",
   },
   {
@@ -118,7 +118,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "fruit",
+    type: "Хүнс",
     image: "https://restics.temptics.com/assets/img/food-1.png",
   },
   {
@@ -127,7 +127,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "protein",
+    type: "Уураг",
     image: "https://restics.temptics.com/assets/img/food-2.png",
   },
   {
@@ -136,7 +136,7 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "vegetable",
+    type: "Цагаан хоол",
     image: "https://restics.temptics.com/assets/img/food-3.png",
   },
   {
@@ -145,14 +145,14 @@ const foodDatas = [
     price: 4500,
     description:
       "It’s the perfect dining experience where a every dish is crafted with fresh high quality ",
-    type: "protein",
+    type: "Уураг",
     image: "https://restics.temptics.com/assets/img/shop-details.png",
   },
 ];
-const foodTypes = ["fruit", "vegetable", "grain", "protein"];
+const foodTypes = ["Бүх", "Хүнс", "Цагаан хоол", "Тариа", "Уураг"];
 
 const MainSection = () => {
-  const [selectedFoodType, setSelectedFoodType] = useState("fruit");
+  const [selectedFoodType, setSelectedFoodType] = useState("Хүнс");
   return (
     <main className="w-full h-fit flex flex-col pt-[120px] items-center justify-center p-4">
       <FoodFilter

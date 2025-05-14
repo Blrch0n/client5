@@ -24,7 +24,7 @@ const EachFoodDetail = ({ foodData }) => {
           {new Intl.NumberFormat("en-US").format(foodData.price)}₮
         </p>
         <button
-          className="bg-[#FAA019] text-white text-[13px] font-semibold rounded-full px-4 py-2 mt-2"
+          className="bg-[#FAA019] hover:bg-[#fff] hover:text-[#FAA019] border hover:border-[#FAA019] border-[#fff] duration-200 cursor-pointer ease-in text-white text-[13px] font-semibold rounded-full px-4 py-2 mt-2"
           onClick={() => {
             addToCart(foodData);
             toast.success(`${foodData.title} нэмэгдлээ.`);
