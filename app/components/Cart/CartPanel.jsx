@@ -31,9 +31,6 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
           _id: item._id,
         })),
       });
-      await axios.put(`http://localhost:8000/api/v1/table/${tableid}`, {
-        isActive: true,
-      });
     } catch (err) {
       console.error("Something went wrong:", err.response?.data || err.message);
     }
