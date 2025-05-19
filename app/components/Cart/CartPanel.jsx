@@ -18,13 +18,14 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
   } = useCart();
 
   const handleClick = () => {
+    console.log("items", items);
     axios.post(`http://localhost:8000/api/v1/order`, {
       items: items,
       totalPrice: totalPrice,
       merchantId: merchantid,
       tableId: tableid,
       products: items.map((item) => ({
-        product: tableid,
+        product: item.id,
         price: item.price,
         total: item.quantity,
         _id: item._id,
@@ -69,7 +70,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
                   <Image
                     width={80}
                     height={48}
-                    src={i.image}
+                    src={i.image || "/food-sample.jpg"}
                     alt={i.title}
                     className="w-20 h-12 rounded mr-2 object-cover"
                   />

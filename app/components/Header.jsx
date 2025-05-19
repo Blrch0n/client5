@@ -20,7 +20,7 @@ const Header = ({ merchantid, tableid }) => {
           }}
         ></span>
         <div className="flex items-center z-10 pt-2 pb-4 relative w-full justify-between">
-          <Link href={"/"}>
+          <Link href={`/table/${tableid}/${merchantid}`}>
             <Image
               src="https://restics.temptics.com/assets/img/logo-dark.svg"
               alt="logo"

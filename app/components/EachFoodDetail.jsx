@@ -9,7 +9,9 @@ const EachFoodDetail = ({ foodData }) => {
       <Image
         width={120}
         height={120}
-        src={foodData.image ? foodData.image : "/food-sample.jpg"}
+        src={
+          foodData.image === "" || null ? foodData.image : "/food-sample.jpg"
+        }
         alt={foodData.title ? foodData.title : "sample food"}
         className="w-[120px] h-[120px] cursor-pointer rounded-full absolute right-1/2 transform -translate-y-[100%] translate-x-1/2"
       />
@@ -36,7 +38,10 @@ const EachFoodDetail = ({ foodData }) => {
           onClick={() => {
             addToCart({
               id: foodData._id,
-              image: foodData.image ? foodData.image : "/food-sample.jpg",
+              image:
+                foodData.image === "" || null
+                  ? foodData.image
+                  : "/food-sample.jpg",
               title: foodData.title
                 ? foodData.title
                 : "Хоолны нэр оруулаагүй байна.",
