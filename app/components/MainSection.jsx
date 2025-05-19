@@ -13,9 +13,11 @@ const MainSection = ({ tableid, merchantid }) => {
   useEffect(() => {
     if (isLoading) {
       Promise.all([
-        axios.get(`http://localhost:8000/api/v1/product?user=${merchantid}`),
         axios.get(
-          `http://localhost:8000/api/v1/subcategory?user=${merchantid}`
+          `https://qmenubackender.onrender.com/api/v1/product?user=${merchantid}`
+        ),
+        axios.get(
+          `https://qmenubackender.onrender.com/api/v1/subcategory?user=${merchantid}`
         ),
       ]).then(([foodDataResponse, subCategoryResponse]) => {
         const foodData = foodDataResponse.data.data;

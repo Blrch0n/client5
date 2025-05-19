@@ -19,7 +19,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
 
   const handleClick = async () => {
     try {
-      axios.post(`http://localhost:8000/api/v1/order`, {
+      axios.post(`https://qmenubackender.onrender.com/api/v1/order`, {
         items: items,
         totalPrice: totalPrice,
         merchantId: merchantid,
