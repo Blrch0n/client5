@@ -17,20 +17,26 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
     removeAllFromCart,
   } = useCart();
 
-  const handleClick = () => {
-    console.log("items", items);
-    axios.post(`http://localhost:8000/api/v1/order`, {
-      items: items,
-      totalPrice: totalPrice,
-      merchantId: merchantid,
-      tableId: tableid,
-      products: items.map((item) => ({
-        product: item.id,
-        price: item.price,
-        total: item.quantity,
-        _id: item._id,
-      })),
-    });
+  const handleClick = async () => {
+    try {
+      axios.post(`http://localhost:8000/api/v1/order`, {
+        items: items,
+        totalPrice: totalPrice,
+        merchantId: merchantid,
+        tableId: tableid,
+        products: items.map((item) => ({
+          product: item.id,
+          price: item.price,
+          total: item.quantity,
+          _id: item._id,
+        })),
+      });
+      await axios.put(`http://localhost:8000/api/v1/table/${tableid}`, {
+        isActive: true,
+      });
+    } catch (err) {
+      console.error("Something went wrong:", err.response?.data || err.message);
+    }
   };
 
   return (
