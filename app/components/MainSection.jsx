@@ -35,13 +35,13 @@ const MainSection = ({ tableid, merchantid }) => {
     }
   }, [isLoading, merchantid]);
 
-  if (isLoading) {
-    return (
-      <div className="w-full h-screen flex items-center justify-center">
-        <p className="text-[20px] font-bold text-[#FC791A]">Loading...</p>
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="w-full h-screen flex items-center justify-center">
+  //       <p className="text-[20px] font-bold text-[#FC791A]">Loading...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <main className="w-full min-h-screen flex flex-col pt-[120px] items-center justify-start p-4">
