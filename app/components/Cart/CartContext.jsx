@@ -34,7 +34,7 @@ export function CartProvider({ children }) {
       const idx = curr.findIndex((i) => i.id === newItem.id);
       if (idx > -1) {
         const updated = [...curr];
-        updated[idx].quantity += 0.5;
+        updated[idx].quantity += 1;
         return updated;
       } else {
         return [...curr, { ...newItem, quantity: 1 }];
