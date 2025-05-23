@@ -44,7 +44,10 @@ const MainSection = ({ tableid, merchantid }) => {
   }
 
   return (
-    <main className="w-full min-h-screen flex flex-col items-center justify-start p-4">
+    <main
+      className="w-full flex flex-col items-center justify-start p-4"
+      style={{ height: datas ? "auto" : "100vh" }}
+    >
       <FoodFilter
         foodTypes={subDatas}
         selectedFoodType={selectedFoodType}
