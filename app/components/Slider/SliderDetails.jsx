@@ -1,12 +1,21 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TiArrowRight } from "react-icons/ti";
 import { TiArrowLeft } from "react-icons/ti";
 
 const SliderDetails = ({ data1, setCurrentIndex, currentIndex }) => {
   const [arrowsDisabled, setArrowsDisabled] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex < data1.length - 1 ? prevIndex + 1 : 0
+      );
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex, data1.length, setCurrentIndex]);
 
   const handleArrowClick = (direction) => {
     if (arrowsDisabled) return;
