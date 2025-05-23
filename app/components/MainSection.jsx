@@ -14,18 +14,18 @@ const MainSection = ({ tableid, merchantid }) => {
     if (isLoading) {
       Promise.all([
         axios.get(
-          `https://qmenubackender.onrender.com/api/v1/product?user=${merchantid}`
+          `https://templateapi.xyz/qrmenu/api/v1/product?user=${merchantid}`
         ),
         axios.get(
-          `https://qmenubackender.onrender.com/api/v1/subcategory?user=${merchantid}`
+          `https://templateapi.xyz/qrmenu/api/v1/subcategory?user=${merchantid}`
         ),
       ]).then(([foodDataResponse, subCategoryResponse]) => {
         const foodData = foodDataResponse.data.data;
         const subCategoryData = subCategoryResponse.data.data;
 
-        console.log(
-          "asdads:::::" + JSON.stringify(subCategoryResponse.data.data)
-        );
+        // console.log(
+        //   "asdads:::::" + JSON.stringify(subCategoryResponse.data.data)
+        // );
         // console.log(secondDataResponse.data);
 
         setDatas(foodData);
@@ -44,7 +44,7 @@ const MainSection = ({ tableid, merchantid }) => {
   }
 
   return (
-    <main className="w-full min-h-screen flex flex-col pt-[120px] items-center justify-start p-4">
+    <main className="w-full min-h-screen flex flex-col items-center justify-start p-4">
       <FoodFilter
         foodTypes={subDatas}
         selectedFoodType={selectedFoodType}
