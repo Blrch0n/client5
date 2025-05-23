@@ -57,7 +57,15 @@ const SliderDetails = ({ data1, setCurrentIndex, currentIndex }) => {
           ))}
       </AnimatePresence>
       <div className="w-full flex flex-row gap-4 items-center justify-between">
-        <span className="w-full"></span>
+        <div className="w-full h-[1px] flex justify-start bg-[#eb00291a]">
+          <span
+            className="h-full "
+            style={{
+              backgroundColor: "#EB0029",
+              width: `${((currentIndex + 1) / data1.length) * 100}%`,
+            }}
+          ></span>
+        </div>
         <TiArrowLeft
           className="text-5xl cursor-pointer"
           onClick={() => handleArrowClick("left")}
