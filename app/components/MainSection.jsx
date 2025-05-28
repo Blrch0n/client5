@@ -26,7 +26,7 @@ const MainSection = ({ tableid, merchantid }) => {
         // console.log(
         //   "asdads:::::" + JSON.stringify(subCategoryResponse.data.data)
         // );
-        // console.log(secondDataResponse.data);
+        // // console.log(secondDataResponse.data);
 
         setDatas(foodData);
         setSubDatas(subCategoryData);

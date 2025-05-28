@@ -1,5 +1,6 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import SliderDetails from "./SliderDetails";
+import axios from "axios";
 
 const sliderData = [
   {
@@ -25,15 +26,46 @@ const sliderData = [
   },
 ];
 
-const MainSlider = () => {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+const MainSlider = ({ merchantid, tableid }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [sliderData, setSlider] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSliderData = async () => {
+      try {
+        const response = await axios.get(
+          `https://templateapi.xyz/qrmenu/api/v1/slider/merchant/${merchantid}`
+        );
+        setSlider(response.data.data);
+        console.log("Slider Data:", response.data.data);
+      } catch (error) {
+        console.error("Error fetching slider data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (isLoading) {
+      fetchSliderData();
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <p className="text-[20px] font-bold text-[#FC791A]">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-fit flex-col py-4 flex items-end justify-end  pt-[120px] bg-amber-400">
       <div className="flex flex-row w-[95%] justify-between p-4 items-center bg-red-600 rounded-bl-full rounded-tl-full">
         <img
-          src={"https://restics.temptics.com/assets/img/banner-img-1.png"}
-          width={240}
-          height={240}
+          src={`https://templateapi.xyz/qrmenu/uploads/${sliderData[currentIndex].image}`}
+          alt={sliderData[currentIndex].title}
+          className="rounded-full object-cover h-[240px] max-w-[240px]"
         />
         <div className="flex flex-col-reverse">
           {sliderData.map((data, index) => {

@@ -12,7 +12,7 @@ const page = () => {
   return (
     <>
       <Header merchantid={merchantid} tableid={tableid} />
-      <MainSlider />
+      <MainSlider merchantid={merchantid} tableid={tableid} />
       <MainSection tableid={tableid} merchantid={merchantid} />
       <Footer />
     </>
