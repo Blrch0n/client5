@@ -54,16 +54,27 @@ const MainSlider = ({ merchantid, tableid }) => {
   if (isLoading) {
     return (
       <div className="w-full h-screen flex items-center justify-center">
-        <p className="text-[20px] font-bold text-[#FC791A]">Loading...</p>
+        <svg
+          className="mr-3 size-10 animate-spin"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>{" "}
       </div>
     );
   }
+  console.log("Slider Data:", sliderData);
 
   return (
     <div className="w-full h-fit flex-col py-4 flex items-end justify-end  pt-[120px] bg-amber-400">
       <div className="flex flex-row w-[95%] justify-between p-4 items-center bg-red-600 rounded-bl-full rounded-tl-full">
         <img
-          src={`https://templateapi.xyz/qrmenu/uploads/${sliderData[currentIndex].image}`}
+          src={
+            sliderData[currentIndex].image.length > 20
+              ? `https://templateapi.xyz/qrmenu/uploads/${sliderData[currentIndex].image}`
+              : `https://restics.temptics.com/assets/img/banner-img-1.png`
+          }
           alt={sliderData[currentIndex].title}
           className="rounded-full object-cover h-[240px] max-w-[240px]"
         />
