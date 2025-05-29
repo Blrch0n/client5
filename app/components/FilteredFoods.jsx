@@ -2,9 +2,12 @@ import React from "react";
 import EachFoodDetail from "./EachFoodDetail";
 
 const FilteredFoods = ({ foodDatas, selectedFoodType }) => {
-  const filteredFoodDatas = foodDatas.filter((e) =>
-    selectedFoodType ? e.subcategory === selectedFoodType : e
-  );
+  const filteredFoodDatas = foodDatas.filter((e) => {
+    if (selectedFoodType === "all" || !selectedFoodType) {
+      return true;
+    }
+    return e.subcategory === selectedFoodType;
+  });
   return (
     <div className="w-full h-fit grid gap-[80px] mt-[80px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center p-4">
       {filteredFoodDatas.length > 0 ? (

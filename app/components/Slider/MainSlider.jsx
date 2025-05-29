@@ -2,29 +2,29 @@ import { useEffect, useState } from "react";
 import SliderDetails from "./SliderDetails";
 import axios from "axios";
 
-const sliderData = [
-  {
-    id: 1,
-    span: "Бидний тухай1",
-    title: "Таны хүссэн бүхнийг нэг 1дороос",
-    description:
-      "Бид таны хүссэн бүхнийг нэг дороос, хамгийн хямд үнээр, хамгийн хурдан хүргэж өгнө.",
-  },
-  {
-    id: 2,
-    span: "Бидний тухай2",
-    title: "Таны хүссэн бүхнийг нэг 2дороос",
-    description:
-      "Бид таны хүссэн бүхнийг нэг дороос, хамгийн хямд үнээр, хамгийн хурдан хүргэж өгнө.",
-  },
-  {
-    id: 3,
-    span: "Бидний тухай3",
-    title: "Таны хүссэн бүхнийг нэг 3дороос",
-    description:
-      "Бид таны хүссэн бүхнийг нэг дороос, хамгийн хямд үнээр, хамгийн хурдан хүргэж өгнө.",
-  },
-];
+// const sliderData = [
+//   {
+//     id: 1,
+//     span: "Бидний тухай1",
+//     title: "Таны хүссэн бүхнийг нэг 1дороос",
+//     description:
+//       "Бид таны хүссэн бүхнийг нэг дороос, хамгийн хямд үнээр, хамгийн хурдан хүргэж өгнө.",
+//   },
+//   {
+//     id: 2,
+//     span: "Бидний тухай2",
+//     title: "Таны хүссэн бүхнийг нэг 2дороос",
+//     description:
+//       "Бид таны хүссэн бүхнийг нэг дороос, хамгийн хямд үнээр, хамгийн хурдан хүргэж өгнө.",
+//   },
+//   {
+//     id: 3,
+//     span: "Бидний тухай3",
+//     title: "Таны хүссэн бүхнийг нэг 3дороос",
+//     description:
+//       "Бид таны хүссэн бүхнийг нэг дороос, хамгийн хямд үнээр, хамгийн хурдан хүргэж өгнө.",
+//   },
+// ];
 
 const MainSlider = ({ merchantid, tableid }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,7 +38,6 @@ const MainSlider = ({ merchantid, tableid }) => {
           `https://templateapi.xyz/qrmenu/api/v1/slider/merchant/${merchantid}`
         );
         setSlider(response.data.data);
-        console.log("Slider Data:", response.data.data);
       } catch (error) {
         console.error("Error fetching slider data:", error);
       } finally {
@@ -64,20 +63,23 @@ const MainSlider = ({ merchantid, tableid }) => {
       </div>
     );
   }
-  console.log("Slider Data:", sliderData);
 
   return (
     <div className="w-full h-fit flex-col py-4 flex items-end justify-end  pt-[120px] bg-amber-400">
       <div className="flex flex-row w-[95%] justify-between p-4 items-center bg-red-600 rounded-bl-full rounded-tl-full">
-        <img
-          src={
-            sliderData[currentIndex].image.length > 20
-              ? `https://templateapi.xyz/qrmenu/uploads/${sliderData[currentIndex].image}`
-              : `https://restics.temptics.com/assets/img/banner-img-1.png`
-          }
-          alt={sliderData[currentIndex].title}
-          className="rounded-full object-cover h-[240px] max-w-[240px]"
-        />
+        <div className="image-container overflow-hidden rounded-full h-[240px] w-[240px]">
+          <img
+            key={currentIndex}
+            src={
+              sliderData[currentIndex].image.length > 20
+                ? `https://templateapi.xyz/qrmenu/uploads/${sliderData[currentIndex].image}`
+                : `https://restics.temptics.com/assets/img/banner-img-1.png`
+            }
+            alt={sliderData[currentIndex].title}
+            className="rounded-full object-cover h-[240px] max-w-[240px] transition-opacity duration-500 ease-in-out"
+            style={{ animation: "fadeIn 0.5s ease-in-out" }}
+          />
+        </div>
         <div className="flex flex-col-reverse">
           {sliderData.map((data, index) => {
             return (

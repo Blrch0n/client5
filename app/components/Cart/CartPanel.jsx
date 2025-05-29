@@ -51,8 +51,6 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
     );
     if (response?.data?.success) {
       try {
-        console.log("response", response.data);
-        console.log("orderData", items);
         const orderDate = new Date().toISOString();
         const existingOrders = JSON.parse(
           localStorage.getItem("orderHistory") || "[]"

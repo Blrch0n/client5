@@ -57,7 +57,15 @@ const SliderDetails = ({ data1, setCurrentIndex, currentIndex }) => {
         {data1[currentIndex] && (
           <div
             key={currentIndex}
-            className="absolute w-full flex flex-col gap-4 text-[#010F1C] transition-opacity duration-500 ease-in-out opacity-100"
+            className="absolute w-full flex flex-col gap-4 text-[#010F1C]"
+            style={{
+              opacity: isTransitioning ? 0 : 1,
+              transform: isTransitioning
+                ? `translateX(${direction === "right" ? "-20px" : "20px"})`
+                : "translateX(0)",
+              transition:
+                "opacity 500ms ease-in-out, transform 500ms ease-in-out",
+            }}
           >
             <h1 className="text-[33px] font-black leading-none">
               {data1[currentIndex].title}

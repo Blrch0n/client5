@@ -1,7 +1,8 @@
 const FoodFilter = ({ foodTypes, selectedFoodType, setSelectedFoodType }) => {
+  const allFoodTypes = [{ _id: "all", title: "Бүгд" }, ...foodTypes];
   return (
     <div className="w-full h-fit flex gap-4 flex-wrap items-center justify-center p-4">
-      {foodTypes.map((foodType, index) => {
+      {allFoodTypes.map((foodType, index) => {
         return (
           <span
             key={index}
