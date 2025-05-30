@@ -1,12 +1,25 @@
-const FoodFilter = ({ foodTypes, selectedFoodType, setSelectedFoodType }) => {
-  const allFoodTypes = [{ _id: "all", title: "Бүгд" }, ...foodTypes];
+"use client";
+import { useEffect } from "react";
+
+const FoodFilter = ({
+  categoryDatas,
+  selectedFoodType,
+  setSelectedFoodType,
+}) => {
+  const allFoodTypes = [...categoryDatas];
+  useEffect(() => {
+    if (allFoodTypes && allFoodTypes.length > 0) {
+      setSelectedFoodType(allFoodTypes[0]._id);
+    }
+  }, []);
+
   return (
-    <div className="w-full h-fit flex gap-4 flex-wrap items-center justify-center p-4">
+    <div className="w-full h-fit flex overflow-x-auto flex-nowrap flex-row gap-4 items-center justify-start p-4">
       {allFoodTypes.map((foodType, index) => {
         return (
           <span
             key={index}
-            className="rounded-full cursor-pointer flex px-4 py-2 duration-300 border"
+            className="rounded-full cursor-pointer whitespace-nowrap px-4 py-2 duration-300 border flex-shrink-0"
             onClick={() => setSelectedFoodType(foodType._id)}
             style={{
               border:

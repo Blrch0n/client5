@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import FoodFilter from "./FoodFilter";
 import FilteredFoods from "./FilteredFoods";
 import axios from "axios";
+import SubFootFilter from "./SubFootFilter";
 
 const MainSection = ({ tableid, merchantid }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [datas, setDatas] = useState([]);
   const [subDatas, setSubDatas] = useState([]);
+  const [categoryDatas, setCategoryDatas] = useState([]);
   const [selectedFoodType, setSelectedFoodType] = useState("");
+  const [selectedSubFoodType, setSelectedSubFoodType] = useState("");
 
   useEffect(() => {
     if (isLoading) {
@@ -17,37 +20,51 @@ const MainSection = ({ tableid, merchantid }) => {
           `https://templateapi.xyz/qrmenu/api/v1/product?user=${merchantid}`
         ),
         axios.get(
-          `https://templateapi.xyz/qrmenu/api/v1/subcategory?user=${merchantid}`
+          `https://templateapi.xyz/qrmenu/api/v1/subcategory/merchant/${merchantid}`
         ),
-      ]).then(([foodDataResponse, subCategoryResponse]) => {
+        axios.get(
+          `https://templateapi.xyz/qrmenu/api/v1/category/merchant/${merchantid}`
+        ),
+      ]).then(([foodDataResponse, subCategoryResponse, categoryResponse]) => {
         const foodData = foodDataResponse.data.data;
         const subCategoryData = subCategoryResponse.data.data;
-
-        // console.log(
-        //   "asdads:::::" + JSON.stringify(subCategoryResponse.data.data)
-        // );
-        // // console.log(secondDataResponse.data);
+        const categoryData = categoryResponse.data.data;
 
         setDatas(foodData);
+        console.log("foodData:::::", foodData);
         setSubDatas(subCategoryData);
+        console.log("subCategoryData:::::", subCategoryData);
+        setCategoryDatas(categoryData);
+        console.log("categoryData:::::", categoryData);
         setIsLoading(false);
       });
     }
   }, [isLoading, merchantid]);
 
+  useEffect(() => {
+    if (selectedFoodType && subDatas.length > 0) {
+      // Find subcategories matching the selected food type
+      const matchingSubcategories = subDatas.filter(
+        (item) =>
+          item.category === selectedFoodType || selectedFoodType === "all"
+      );
+
+      // Auto-select first subcategory if any match is found
+      if (matchingSubcategories.length > 0) {
+        setSelectedSubFoodType(matchingSubcategories[0]._id);
+        console.log(
+          "Auto-selected subcategory:",
+          matchingSubcategories[0].title
+        );
+      } else {
+        // Reset selection if no matching subcategories
+        setSelectedSubFoodType("");
+      }
+    }
+  }, [selectedFoodType, subDatas]);
+
   if (isLoading) {
-    return (
-      // <div className="w-full h-screen flex items-center justify-center">
-      //   <svg
-      //     className="mr-3 size-10 animate-spin"
-      //     viewBox="0 0 24 24"
-      //     fill="currentColor"
-      //   >
-      //     <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-      //   </svg>
-      // </div>
-      <div></div>
-    );
+    return <div></div>;
   }
 
   return (
@@ -56,11 +73,21 @@ const MainSection = ({ tableid, merchantid }) => {
       style={{ height: datas ? "auto" : "100vh" }}
     >
       <FoodFilter
-        foodTypes={subDatas}
+        categoryDatas={categoryDatas}
+        setCategoryDatas={setCategoryDatas}
         selectedFoodType={selectedFoodType}
         setSelectedFoodType={setSelectedFoodType}
       />
-      <FilteredFoods foodDatas={datas} selectedFoodType={selectedFoodType} />
+      <SubFootFilter
+        subDatas={subDatas}
+        selectedFoodType={selectedFoodType}
+        selectedSubFoodType={selectedSubFoodType}
+        setSelectedSubFoodType={setSelectedSubFoodType}
+      />
+      <FilteredFoods
+        foodDatas={datas}
+        selectedSubFoodType={selectedSubFoodType}
+      />
     </main>
   );
 };

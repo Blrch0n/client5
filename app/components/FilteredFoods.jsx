@@ -1,12 +1,9 @@
 import React from "react";
 import EachFoodDetail from "./EachFoodDetail";
 
-const FilteredFoods = ({ foodDatas, selectedFoodType }) => {
+const FilteredFoods = ({ foodDatas, selectedSubFoodType }) => {
   const filteredFoodDatas = foodDatas.filter((e) => {
-    if (selectedFoodType === "all" || !selectedFoodType) {
-      return true;
-    }
-    return e.subcategory === selectedFoodType;
+    return e.subcategory === selectedSubFoodType;
   });
   return (
     <div className="w-full h-fit grid gap-[80px] mt-[80px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center p-4">
@@ -15,12 +12,12 @@ const FilteredFoods = ({ foodDatas, selectedFoodType }) => {
           <EachFoodDetail
             key={foodData._id}
             foodData={foodData}
-            selectedFoodType={selectedFoodType}
+            selectedFoodType={selectedSubFoodType}
           />
         ))
       ) : (
         <div className="w-full h-full flex items-center py-20 justify-center">
-          <p className="text-xl text-gray-500">
+          <p className="text-xl text-gray-500 text-center">
             Энэ төрлийн хоол байхгүй байна
           </p>
         </div>
