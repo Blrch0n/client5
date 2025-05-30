@@ -22,30 +22,36 @@ const SubFootFilter = ({
   //     }
   //   }, [filteredSubFootTypes, selectedFoodType]);
   return (
-    <div className="w-full h-fit flex overflow-x-auto flex-nowrap flex-row gap-4 items-center justify-start p-4">
-      {filteredSubFootTypes.map((foodType, index) => {
-        return (
-          <span
-            key={index}
-            className="rounded-full cursor-pointer whitespace-nowrap px-4 py-2 duration-300 border flex-shrink-0"
-            onClick={() => {
-              setSelectedSubFoodType(foodType._id);
-              console.log("Selected Sub Food Type:", foodType._id);
-              console.log("selectedSubFoodType:", selectedSubFoodType);
-            }}
-            style={{
-              border:
-                selectedSubFoodType === foodType._id
-                  ? "1px solid #FAA019"
-                  : "1px solid #000",
-              color: selectedSubFoodType === foodType._id ? "#FAA019" : "#000",
-            }}
-          >
-            {foodType.title}
-          </span>
-        );
-      })}
-    </div>
+    <>
+      <h1 className="font-semibold text-[20px] mt-2 text-[#333]">
+        Дэд ангилал
+      </h1>
+      <div className="w-full h-fit flex overflow-x-auto flex-nowrap flex-row gap-4 items-center justify-start p-4">
+        {filteredSubFootTypes.map((foodType, index) => {
+          return (
+            <span
+              key={index}
+              className="rounded-full cursor-pointer whitespace-nowrap px-4 py-2 duration-300 border flex-shrink-0"
+              onClick={() => {
+                setSelectedSubFoodType(foodType._id);
+                console.log("Selected Sub Food Type:", foodType._id);
+                console.log("selectedSubFoodType:", selectedSubFoodType);
+              }}
+              style={{
+                border:
+                  selectedSubFoodType === foodType._id
+                    ? "1px solid #FAA019"
+                    : "1px solid #000",
+                color:
+                  selectedSubFoodType === foodType._id ? "#FAA019" : "#000",
+              }}
+            >
+              {foodType.title}
+            </span>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

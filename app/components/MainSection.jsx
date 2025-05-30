@@ -78,6 +78,9 @@ const MainSection = ({ tableid, merchantid }) => {
         selectedFoodType={selectedFoodType}
         setSelectedFoodType={setSelectedFoodType}
       />
+      <div className="w-full h-fit flex items-center justify-center px-4">
+        <span className="w-full h-[1px] bg-[#f1f1f1]" />
+      </div>
       <SubFootFilter
         subDatas={subDatas}
         selectedFoodType={selectedFoodType}

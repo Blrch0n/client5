@@ -14,26 +14,29 @@ const FoodFilter = ({
   }, []);
 
   return (
-    <div className="w-full h-fit flex overflow-x-auto flex-nowrap flex-row gap-4 items-center justify-start p-4">
-      {allFoodTypes.map((foodType, index) => {
-        return (
-          <span
-            key={index}
-            className="rounded-full cursor-pointer whitespace-nowrap px-4 py-2 duration-300 border flex-shrink-0"
-            onClick={() => setSelectedFoodType(foodType._id)}
-            style={{
-              border:
-                selectedFoodType === foodType._id
-                  ? "1px solid #FAA019"
-                  : "1px solid #000",
-              color: selectedFoodType === foodType._id ? "#FAA019" : "#000",
-            }}
-          >
-            {foodType.title}
-          </span>
-        );
-      })}
-    </div>
+    <>
+      <h1 className="font-semibold text-[20px] mt-2 text-[#333]">Ангилал</h1>
+      <div className="w-full h-fit flex overflow-x-auto flex-nowrap flex-row gap-4 items-center justify-start p-4">
+        {allFoodTypes.map((foodType, index) => {
+          return (
+            <span
+              key={index}
+              className="rounded-full cursor-pointer whitespace-nowrap px-4 py-2 duration-300 border flex-shrink-0"
+              onClick={() => setSelectedFoodType(foodType._id)}
+              style={{
+                border:
+                  selectedFoodType === foodType._id
+                    ? "1px solid #FAA019"
+                    : "1px solid #000",
+                color: selectedFoodType === foodType._id ? "#FAA019" : "#000",
+              }}
+            >
+              {foodType.title}
+            </span>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
