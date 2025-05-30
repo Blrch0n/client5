@@ -4,16 +4,19 @@ import toast from "react-hot-toast";
 
 const EachFoodDetail = ({ foodData }) => {
   const { addToCart } = useCart();
+  console.log(foodData);
   return (
     <div className="rounded-[0px_16px_0px_16px] flex w-full h-fit p-4 pt-0 flex-col relative justify-center items-center border border-[#00000033]">
       <Image
         width={120}
         height={120}
         src={
-          foodData.image === "" || null ? foodData.image : "/food-sample.jpg"
+          foodData.cover && foodData.cover !== ""
+            ? `https://templateapi.xyz/qrmenu/uploads/${foodData.cover}`
+            : "/food-sample.jpg"
         }
         alt={foodData.title ? foodData.title : "sample food"}
-        className="w-[120px] h-[120px] cursor-pointer rounded-full absolute right-1/2 transform -translate-y-[100%] translate-x-1/2"
+        className="w-[120px] h-[120px] cursor-pointer rounded-full object-cover absolute right-1/2 transform -translate-y-[100%] translate-x-1/2"
       />
       <span className="w-full h-[120px]"></span>
       <div className="h-[50px] flex items-center">

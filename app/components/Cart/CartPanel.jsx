@@ -122,12 +122,12 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
           <FiX size={24} />
         </button>
 
-        <h2 className=" font-semibold font-roboto text-[#ff4301] text-2xl mb-4">
+        <h2 className=" font-semibold font-roboto text-[#e7000b] text-2xl mb-4">
           Таны сагс
         </h2>
 
         <button
-          className="text-[#ff4301] text-[14px] mb-4"
+          className="text-[#e7000b] text-[14px] mb-4"
           onClick={() => {
             setIsHistoryClicked(!isHistoryClicked);
           }}
@@ -142,7 +142,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
               orderHistory.map((order, index) => (
                 <div key={index}>
                   <div
-                    className="flex flex-row bg-amber-100 justify-between w-full h-fit gap-5 py-4 items-start mb-3 cursor-pointer"
+                    className="flex flex-row bg-[#ffba0040] rounded-[5px] justify-between w-full h-fit gap-5 py-4 items-start mb-3 cursor-pointer"
                     onClick={() => {
                       setIsOrderClicked(
                         isOrderClicked === index ? null : index
@@ -152,7 +152,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
                     <div>
                       <div className="w-full flex gap-4 items-start justify-between">
                         <div className="flex items-end gap-2">
-                          <p className="font-semibold text-[#ff4301]">{`#${
+                          <p className="font-semibold text-[#e7000b]">{`#${
                             index + 1
                           }`}</p>
                           <p className="font-medium text-[16px]">
@@ -184,7 +184,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
 
                   {/* Products list - shown when order is clicked */}
                   {isOrderClicked === index && (
-                    <div className="ml-4 mb-4 border-l-2 border-[#ff4301] pl-4">
+                    <div className="ml-4 mb-4 border-l-2 border-[#e7000b] pl-4">
                       {order.products.map((product) => (
                         <div
                           key={product.product}
@@ -206,7 +206,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
               ))
             )}
             <button
-              className="bg-[#ff4301] text-white py-[7px] text-[12px] px-[15px] rounded-full"
+              className="bg-[#e7000b] text-white py-[7px] text-[12px] px-[15px] rounded-full"
               onClick={() => {
                 setIsHistoryClicked(false);
                 // removeAllFromCart();
@@ -254,7 +254,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
                         <FaTimes />
                       </button>
                     </div>
-                    <div className="w-fit flex text-[14px] text-[#ff4301] font-semibold items-center gap-4 justify-between">
+                    <div className="w-fit flex text-[14px] text-[#e7000b] font-semibold items-center gap-4 justify-between">
                       <span className="w-20 font-normal text-[#999] mr-2">
                         Үнийн дүн
                       </span>
@@ -275,7 +275,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
                               toast.success(`${i.title} нэг ширхэг хасагдлаа.`);
                             }
                           }}
-                          className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ff4301] text-white"
+                          className="w-6 h-6 flex items-center justify-center rounded-full bg-[#e7000b] text-white"
                         >
                           -
                         </button>
@@ -285,7 +285,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
                             increaseQuantity(i.id);
                             toast.success(`${i.title} нэг ширхэг нэмэгдлээ.`);
                           }}
-                          className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ff4301] text-white"
+                          className="w-6 h-6 flex items-center justify-center rounded-full bg-[#e7000b] text-white"
                         >
                           +
                         </button>
@@ -313,7 +313,7 @@ export default function CartPanel({ open, onClose, merchantid, tableid }) {
                     <p>{totalPrice.toLocaleString()}₮</p>
                   </div>
                   <button
-                    className="bg-[#ff4301] text-white py-[7px] text-[12px] px-[15px] rounded-full"
+                    className="bg-[#e7000b] text-white py-[7px] text-[12px] px-[15px] rounded-full"
                     onClick={handleCheckout}
                   >
                     Үргэжлүүлэх

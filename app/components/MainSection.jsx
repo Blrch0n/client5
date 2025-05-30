@@ -31,11 +31,8 @@ const MainSection = ({ tableid, merchantid }) => {
         const categoryData = categoryResponse.data.data;
 
         setDatas(foodData);
-        console.log("foodData:::::", foodData);
         setSubDatas(subCategoryData);
-        console.log("subCategoryData:::::", subCategoryData);
         setCategoryDatas(categoryData);
-        console.log("categoryData:::::", categoryData);
         setIsLoading(false);
       });
     }

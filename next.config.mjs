@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/assets/**",
       },
+      {
+        protocol: "https",
+        hostname: "templateapi.xyz",
+        port: "",
+        pathname: "/qrmenu/uploads/**",
+      },
     ],
   },
 };
